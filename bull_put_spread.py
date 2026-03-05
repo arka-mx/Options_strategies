@@ -27,7 +27,7 @@ class bull_call_spread:
         self.spread = self.set_itm-self.set_otm
         net_premium = -self.set_otm_premium + self.set_itm_premium
         for spot_price in range(self.set_otm-2*self.spread,self.set_itm+2*self.spread):
-            self.payoffs.append(net_premium+max(self.set_otm-spot_price,0)+max(spot_price-self.set_itm,0))
+            self.payoffs.append(net_premium + max(self.set_otm-spot_price,0) -max(self.set_itm-spot_price,0) )
 
     def plotting(self):
         y = self.payoffs
@@ -40,5 +40,5 @@ class bull_call_spread:
         plt.show()
 
 obj = bull_call_spread()
-obj.payoff()
+obj.payoff1()
 obj.plotting()
